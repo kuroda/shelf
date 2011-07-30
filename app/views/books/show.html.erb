@@ -1,0 +1,6 @@
+<h1>蔵書: <%= @book.title %></h1>
+
+<div id="book_authors"><%= @book.authors %></div>
+<div id="book_publish_year"><%= @book.publish_year %></div>
+<div id="book_comment"><%= simple_format(@book.comment) %></div>
+<div><%= link_to "蔵書一覧へ", :books %></div>

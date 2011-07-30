@@ -1,0 +1,41 @@
+table.books {
+  width: 560px;
+  margin: 5px auto;
+  background-color: #eee;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.books tr {
+  border: solid 1px #ccc;
+}
+
+table.books td {
+  padding: 5px;
+}
+
+table.books col.title {
+  width: 160px;
+  background-color: #ddd;
+}
+
+table.books col.authors {
+  width: 160px;
+}
+
+table.books col.publish_year {
+  background-color: #ddd;
+}
+
+div#book_publish_year {
+  text-align: right;
+  color: #f00;
+}
+
+div#book_comment {
+  border: solid 1px #888;
+  margin: 5px;
+  padding: 5px;
+  font-size: small;
+  color: #888;
+}
