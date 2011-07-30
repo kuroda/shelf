@@ -33,6 +33,12 @@ class BooksController < ApplicationController
     end
   end
 
+  def check_out
+    @book = Book.find(params[:id])
+    @book.update_attribute(:checked_out, true)
+    redirect_to :back
+  end
+
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
