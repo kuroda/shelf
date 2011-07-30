@@ -13,6 +13,12 @@
 <% end %>
 </ul>
 
+<%= form_tag [ :search, :books ], :method => :get,
+  :style => "text-align: right" do %>
+<%= text_field_tag "query", params[:query] %>
+<%= submit_tag "検索" %>
+<% end %>
+
 <table class="books">
   <col class="title" />
   <col class="authors" />
