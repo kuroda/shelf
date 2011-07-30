@@ -23,3 +23,13 @@ Book.create(
   :comment => "",
   :checked_out => true
 )
+
+20.times do |i|
+  Book.create(
+    :title => "タイトル No. #{i + 1}",
+    :authors => "山田太郎",
+    :publish_year => 1980 + i,
+    :comment => "",
+    :checked_out => false
+  )  
+end

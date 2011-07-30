@@ -1,10 +1,10 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.checked_in
+    @books = Book.checked_in.paginate(:page => params[:page], :per_page => 10)
   end
 
   def checked_out
-    @books = Book.checked_out
+    @books = Book.checked_out.paginate(:page => params[:page], :per_page => 10)
     render :index
   end
 
