@@ -3,6 +3,11 @@ class BooksController < ApplicationController
     @books = Book.where(:checked_out => false)
   end
 
+  def checked_out
+    @books = Book.where(:checked_out => true)
+    render :index
+  end
+
   def show
     @book = Book.find(params[:id])
   end
@@ -36,6 +41,12 @@ class BooksController < ApplicationController
   def check_out
     @book = Book.find(params[:id])
     @book.update_attribute(:checked_out, true)
+    redirect_to :back
+  end
+
+  def check_in
+    @book = Book.find(params[:id])
+    @book.update_attribute(:checked_out, false)
     redirect_to :back
   end
 

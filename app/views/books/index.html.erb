@@ -1,5 +1,18 @@
 <h1>蔵書の一覧</h1>
 
+<ul class="navigation">
+<% if params[:action] == "index" %>
+<li class="selected">在庫</li>
+<% else %>
+<li><%= link_to "在庫", :books %></li>
+<% end %>
+<% if params[:action] == "checked_out" %>
+<li class="selected">貸し出し中</li>
+<% else %>
+<li><%= link_to "貸し出し中", [ :checked_out, :books ] %></li>
+<% end %>
+</ul>
+
 <table class="books">
   <col class="title" />
   <col class="authors" />
@@ -12,7 +25,11 @@
     <td><%= book.publish_year %></td>
     <td>
       <%= link_to "修正", [ :edit, book ] %>
-      <%= link_to "貸し出し", [ :check_out, book ], :method => :put %>
+      <%= if book.checked_out?
+        link_to("戻す", [ :check_in, book ], :method => :put)
+      else
+        link_to("貸し出し", [ :check_out, book ], :method => :put)
+      end %>
       <%= link_to "削除", book, :method => :delete,
         :confirm => "本当に削除しますか？ " %>
     </td>
